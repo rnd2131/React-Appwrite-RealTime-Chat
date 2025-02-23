@@ -1,9 +1,8 @@
 import { Client, Account, Databases } from 'appwrite';
 
-export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
-export const PROJECT_ID = import.meta.env.VITE_PROJECT_ID
-export const DATABASE_ID = import.meta.env.VITE_DATABASE_ID
-export const COLLECTION_ID_MESSAGES = import.meta.env.VITE_COLLECTION_ID_MESSAGES
+
+export const DATABASE_ID = "67bb288b0026aaa25528"
+export const COLLECTION_ID_MESSAGES = "67bb28a9001a2c1f48ef"
 
 const client = new Client()
     .setEndpoint("https://cloud.appwrite.io/v1") 

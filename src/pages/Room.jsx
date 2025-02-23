@@ -84,60 +84,60 @@ const Room = () => {
         //setMessages(prevState => prevState.filter(message => message.$id !== message_id))
      } 
 
-  return (
+return (
     <main className="container">
-        <Header/>
-        <div className="room--container">
-
-        <form id="message--form" onSubmit={handleSubmit}>
-            <div>
-                <textarea 
-                    required 
-                    maxlength="250"
-                    placeholder="Say something..." 
-                    onChange={(e) => {setMessageBody(e.target.value)}}
-                    value={messageBody}
-                    ></textarea>
-            </div>
-
-            <div className="send-btn--wrapper">
-                <input className="btn btn--secondary" type="submit" value="send"/>
-            </div>
-        </form>
-        
-
-        <div>
-            {messages.map(message => (
-                <div key={message.$id} className={"message--wrapper"}>
-                    <div className="message--header">
-                        <p> 
-                            {message?.username ? (
-                                <span> {message?.username}</span>
-                            ): (
-                                'Anonymous user'
-                            )}
-                         
-                            <small className="message-timestamp"> {new Date(message.$createdAt).toLocaleString()}</small>
-                        </p>
-
-                        {message.$permissions.includes(`delete(\"user:${user.$id}\")`) && (
-                            <Trash2 className="delete--btn" onClick={() => {deleteMessage(message.$id)}}/>
-                            
-                        )}
-                    </div>
-
-                    <div className={"message--body" + (message.user_id === user.$id ? ' message--body--owner' : '')}>
-                        <span>{message.body}</span>
-                        
-                    </div>
-                        
             
-                </div>
-            ))}
-        </div>
-        </div>
+            <Header/>
+            <div className="room--container">
+
+            <div style={{display: 'flex', flexDirection: 'column-reverse',position: 'fixed', top: '50px',left:'20px', width: '70%'}}>
+                    {messages.map(message => (
+                            <div key={message.$id} className={"message--wrapper"}>
+                                    <div className="message--header">
+                                            <p> 
+                                                    {message?.username ? (
+                                                            <span> {message?.username}</span>
+                                                    ): (
+                                                            'Anonymous user'
+                                                    )}
+                                             
+                                                    <small className="message-timestamp"> {new Date(message.$createdAt).toLocaleString()}</small>
+                                            </p>
+
+                                            {message.$permissions.includes(`delete(\"user:${user.$id}\")`) && (
+                                                    <Trash2 className="delete--btn" onClick={() => {deleteMessage(message.$id)}}/>
+                                                    
+                                            )}
+                                    </div>
+
+                                    <div className={"message--body" + (message.user_id === user.$id ? ' message--body--owner' : '')}>
+                                            <span>{message.body}</span>
+                                            
+                                    </div>
+                                            
+                    
+                            </div>
+                    ))}
+            </div>
+            <form id="message--form" onSubmit={handleSubmit} style={{width: '100dvw'}}>
+                    <div>
+                            <textarea 
+                                    required 
+                                    maxLength="250"
+                                    style={{resize:'none', marginRight: '65dvw', height: '55px'}}
+                                    placeholder="Say something..." 
+                                    onChange={(e) => {setMessageBody(e.target.value)}}
+                                    value={messageBody}
+                                    ></textarea>
+                    </div>
+
+                    <div className="send-btn--wrapper" style={{position: 'relative', right: '10px', padding: '10px',height: '55px', width: '70px' ,borderRadius: '10px' ,backgroundColor: '#0088cc', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <input className="btn btn--secondary" type="submit" value="send"/>
+                    </div>
+            </form>
+            </div>
     </main>
-  )
+)
 }
 
 export default Room

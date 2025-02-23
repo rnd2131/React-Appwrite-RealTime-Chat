@@ -65,7 +65,6 @@ const LoginPage = () => {
                 </div>
             </form>
 
-            <p>Dont have an account? Register <Link to="/register">here</Link></p>
           </div>
       </div>
 

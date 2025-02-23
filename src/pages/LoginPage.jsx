@@ -64,7 +64,8 @@ const LoginPage = () => {
 
                 </div>
             </form>
-
+            <p>برای عضویت تلگرام پیام دهید </p>
+            <h1>APP by Radman</h1>
           </div>
       </div>
 

@@ -6,8 +6,8 @@ export const DATABASE_ID = import.meta.env.VITE_DATABASE_ID
 export const COLLECTION_ID_MESSAGES = import.meta.env.VITE_COLLECTION_ID_MESSAGES
 
 const client = new Client()
-    .setEndpoint(API_ENDPOINT) 
-    .setProject(PROJECT_ID);    
+    .setEndpoint("https://cloud.appwrite.io/v1") 
+    .setProject("67bb26870022c15ea9a1");    
 
 export const account = new Account(client);
 export const databases = new Databases(client)
